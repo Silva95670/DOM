@@ -27,9 +27,6 @@
  regroupe2.style.width = ("12rem");
  regroupe2.style.margin = ("auto");
 
- 
- 
- 
 
  function myFunction (){
 
@@ -57,6 +54,9 @@
     adress.innerText = document.getElementById('event-adress').value;
     adress.className = "card-text";
 
+    let number = document.createElement("div");
+    number.innerText = document.getElementById('eventnbr').value;
+
     let delete_button = document.createElement("button");
      delete_button.id = ("delete");
      delete_button.innerText = "Supprimer";
@@ -65,15 +65,19 @@
      mask_Card.className = "btn btn-primary";
      mask_Card.innerText = "Masquer";
 
+    
 
+    let cadre = document.getElementById('cadre');
      
      cardBody.appendChild(title);
      cardBody.appendChild(adress);
+     cardBody.appendChild(number);
      card.appendChild(image);
      card.appendChild(cardBody);
     regroupe2.appendChild(card);
     cardBody.appendChild(delete_button);
     cardBody.appendChild(mask_Card);
+    
     
     
      
@@ -84,12 +88,16 @@
     })
 
     mask_Card.addEventListener('click', function () {
-        card.style.display = "none";
-        let btn_activity = document.createElement("button");
-        btn_activity.innerText = "Voir Cards"
-        let btn_1 = document.getElementById = ("bouton-1");
-        
+        card.style.visibility = ("hidden");
+        let createActivity = document.createElement("button");
+    createActivity.innerText = "Voir activité";
+    cadre.appendChild(createActivity);
+    createActivity.addEventListener('click', function () {
+        card.style.visibility = ('visible')
+    } )
     })
+
+    
 
  }
 
